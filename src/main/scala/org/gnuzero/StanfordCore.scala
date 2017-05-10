@@ -10,7 +10,5 @@ class StanfordCore {
 
   def makeString:String = s.words.mkString("")
 
-  def parseTree:String = {
-    s.parse.toString
-  }
+  def parseTree:String = s.parse.toString
 }

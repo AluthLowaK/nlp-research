@@ -1,6 +1,6 @@
 package org.gnuzero
 
-import edu.stanford.nlp.simple._
+import edu.stanford.nlp._
 /**
   * Created by nayana on 10/5/2560.
   */

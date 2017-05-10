@@ -4,7 +4,7 @@ organization := "value-based-economy"
 
 version := "1.0"
 
-scalaVersion := "2.12.2"
+scalaVersion := "2.11.9"
 
 libraryDependencies ++= Seq(
   "edu.stanford.nlp" % "stanford-corenlp" % "3.4",
@@ -12,4 +12,4 @@ libraryDependencies ++= Seq(
   "edu.stanford.nlp" % "stanford-parser" % "3.4"
 )
 
-libraryDependencies += "org.scalatest" % "scalatest_2.10" % "2.0" % "test"
+libraryDependencies += "org.scalatest" % "scalatest_2.11" % "3.0.1" % "test"
