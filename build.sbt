@@ -1,4 +1,6 @@
-name := "stanford-parser-csv"
+name := "nlp-research"
+
+organization := "value-based-economy"
 
 version := "1.0"
 
