@@ -1,23 +1,23 @@
 package org.gnuzero
 
 import java.io.InputStream
+import org.json4s._
+import org.json4s.native.JsonMethods._
 /**
   * Created by nhettiarachc on 5/11/17.
   */
 class JsonReader {
 
-  def parseFile(fileName: String):String = {
+  def parseFile(fileName: String):List[String] = {
     val stream : InputStream = getClass.getResourceAsStream(fileName)
-    val lines = scala.io.Source.fromInputStream( stream ).getLines.toString()
+    val lines = scala.io.Source.fromInputStream( stream ).getLines().mkString("")
 
-    //val parsedData = parse(lines)
+    val json = parse(lines)
 
-
-    /*parsedData.children.foreach(v => {
-        println(v)
-    })*/
-
-    lines
+    for {
+      JObject(message) <- json
+      JField("content", JString(content))  <- message
+    } yield content
 
   }
 

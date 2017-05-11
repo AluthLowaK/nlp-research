@@ -17,20 +17,29 @@ class StanfordCore {
 
   def secondLevelOfTreeAsString(sentence: String):String = {
     val s = new Sentence(sentence)
-    val t = s.parse
+    val tree = s.parse.children()
 
     //t.nodeString prints root
     //t.pennString() prints a tabbed out
 
-    t.children().foreach(f => {
+    /*t.children().foreach(f => {
       println(f.nodeString())
+    })*/
+
+    val l = scala.collection.mutable.ListBuffer.empty[String]
+
+    tree.foreach(f => {
+        l.append(f.value())
+        val nodes = f.children()
+        nodes.foreach(leaf => {
+            l.append(leaf.value())
+        })
+
     })
 
-    t.children().foreach(f => {
-        f.children().foreach(j => {
-            println(j.nodeString())
-        })
-    })
+    println(l)
+
     ""
+
   }
 }

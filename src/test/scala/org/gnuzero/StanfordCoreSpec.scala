@@ -10,7 +10,7 @@ class StanfordCoreSuite extends FunSuite {
 
   val json = new JsonReader
 
-  test("Tree parser ") {
+  /*test("Tree parser ") {
     println(stanfordCore.secondLevelOfTreeAsString("Do this hotel have car parking lot?"))
     assert(true)
   }
@@ -18,10 +18,25 @@ class StanfordCoreSuite extends FunSuite {
   test("as full string") {
     println(stanfordCore.parseTree("Do this hotel have car parking lot?"))
     assert(true)
+  }*/
+
+  test("full tree test") {
+    val idList = json.parseFile("/data.json")
+    val parsedList = idList.map(f => {
+        stanfordCore.parseTree(f)
+    })
+    println(parsedList.mkString("\n"))
+    assert(parsedList.size === 2)
   }
 
-  test("json test") {
-    println(json.parseFile("/data.json"))
-    assert(true)
+  test("second level test") {
+    val idList = json.parseFile("/data.json")
+    val parsedList = idList.map(f => {
+      stanfordCore.secondLevelOfTreeAsString(f)
+    })
+
+    println(parsedList)
+    assert(parsedList.size === 2)
+
   }
 }
