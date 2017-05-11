@@ -10,5 +10,27 @@ class StanfordCore {
 
   def makeString:String = s.words.mkString("")
 
-  def parseTree:String = s.parse.toString
+  def parseTree(sentence: String):String = {
+    val s = new Sentence(sentence)
+    s.parse.toString
+  }
+
+  def secondLevelOfTreeAsString(sentence: String):String = {
+    val s = new Sentence(sentence)
+    val t = s.parse
+
+    //t.nodeString prints root
+    //t.pennString() prints a tabbed out
+
+    t.children().foreach(f => {
+      println(f.nodeString())
+    })
+
+    t.children().foreach(f => {
+        f.children().foreach(j => {
+            println(j.nodeString())
+        })
+    })
+    ""
+  }
 }
