@@ -20,8 +20,14 @@ class StanfordCoreSuite extends FunSuite {
     assert(true)
   }
 
-  test("json test") {
+/*  test("json test") {
     println(json.parseFile("/data.json"))
+    assert(true)
+  }*/
+
+  test("json reader") {
+    val parser = new JsonReader
+    println(parser.parseFile("main/resources/data.json"))
     assert(true)
   }
 }
